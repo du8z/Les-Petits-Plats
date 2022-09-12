@@ -1,0 +1,43 @@
+.cursor{
+    cursor: pointer;
+}
+.btnsOfNav{
+    margin-top: 30px; 
+    display: flex;
+    align-items: center;
+    margin-left: 200px;
+ }
+ .btn{
+     width: 170px;
+     height: 69px;
+     margin-right:20px;
+     padding: 0 5%;
+     border: none;
+     border-radius: 5px;
+     color: white;
+     cursor: pointer;
+     font-weight: 700;
+     font-size: 18px;
+     line-height: 22px;
+ }
+
+.crossOnBtn{
+    transform: rotate(180deg);
+    
+}
+.testBTN{
+    display: block;
+    width: 667px;
+    height: 397px;
+    padding: 20px 0 20px 19px;
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 10px;
+    color: white;
+    overflow: hidden;
+    font-size: 18px;
+    border-radius: 5px;
+}
