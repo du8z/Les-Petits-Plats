@@ -94,22 +94,30 @@ return unique;
 }
 
 function dropDown(){
+
     document.querySelector('.blue').addEventListener('click', ()=>{
-        document.querySelector('#CrossOnBlue').classList.toggle('crossOnBtn')
-        document.querySelector('#BtnIngredient').classList.toggle('testBTN')
         const location = document.getElementById('BtnIngredient')
-        DisplayList(GetIngredient(recipes ), location)
+        location.innerHTML = ""
+        document.querySelector('#CrossOnBlue').classList.toggle('crossOnBtn')
+        document.querySelector('#BtnIngredient').classList.toggle('displayGrid')
+        DisplayList(GetIngredient(recipes), location)
     })
+
     document.querySelector('.red').addEventListener('click', ()=>{
-        document.querySelector('#CrossOnRed').classList.toggle('crossOnBtn')
-        document.querySelector('#BtnUstensils').classList.toggle('testBTN')
-        const location = document.getElementById('BtnUstensils')
+        const location = document.querySelector('#BtnUstensils')
+        location.innerHTML = ""
+        const btnRed = document.querySelector('#CrossOnRed')
+        btnRed.classList.toggle('crossOnBtn')
+        btnRed.classList.toggle('btnAfter')
+        document.querySelector('#BtnUstensils').classList.toggle('displayGrid')
         DisplayList(GetUstensils(recipes), location)
     })
+
     document.querySelector('.green').addEventListener('click', ()=>{
-        document.querySelector('#CrossOnGreen').classList.toggle('crossOnBtn')
-        document.querySelector('#BtnDevice').classList.toggle('testBTN')
         const location = document.getElementById('BtnDevice')
+        location.innerHTML = ""
+        document.querySelector('#CrossOnGreen').classList.toggle('crossOnBtn')
+        document.querySelector('#BtnDevice').classList.toggle('displayGrid')
         DisplayList(GetDevice(recipes), location)
     })
 }

@@ -11,7 +11,7 @@
      width: 170px;
      height: 69px;
      margin-right:20px;
-     padding: 0 5%;
+     padding: 20px;
      border: none;
      border-radius: 5px;
      color: white;
@@ -20,24 +20,30 @@
      font-size: 18px;
      line-height: 22px;
  }
+ .btnAfter {
+    padding: 20px;
+    border-radius: 5px 5px 0 0 ;
+    
+    
+ }
 
-.crossOnBtn{
+.crossOnBtn > svg {
     transform: rotate(180deg);
     
 }
 .testBTN{
-    display: block;
-    width: 667px;
-    height: 397px;
-    padding: 20px 0 20px 19px;
+    display: none;
+    overflow-y: auto;
+    max-height: 397px;
+    padding: 20px ;
     position: absolute;
-    display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(10, 1fr);
     grid-column-gap: 30px;
     grid-row-gap: 10px;
     color: white;
-    overflow: hidden;
     font-size: 18px;
-    border-radius: 5px;
+    border-radius: 0 0 5px 5px;
+}
+.displayGrid{
+    display: grid;
 }
