@@ -98,7 +98,12 @@ function dropDown(){
     document.querySelector('.blue').addEventListener('click', ()=>{
         const location = document.getElementById('BtnIngredient')
         location.innerHTML = ""
-        document.querySelector('#CrossOnBlue').classList.toggle('crossOnBtn')
+        const btnBlue = document.querySelector('#CrossOnBlue')
+        btnBlue.classList.toggle('crossOnBtn')
+        btnBlue.classList.toggle('btnAfter')
+        btnBlue.classList.toggle('btnAfterBlue')
+        const inputDevice = document.querySelector('#inputIngredient')
+        inputDevice.classList.toggle('displayBlock')
         document.querySelector('#BtnIngredient').classList.toggle('displayGrid')
         DisplayList(GetIngredient(recipes), location)
     })
@@ -109,14 +114,24 @@ function dropDown(){
         const btnRed = document.querySelector('#CrossOnRed')
         btnRed.classList.toggle('crossOnBtn')
         btnRed.classList.toggle('btnAfter')
+        btnRed.classList.toggle('btnAfterRed')
+        const inputUtensils = document.querySelector('#inputUtensils')
+        inputUtensils.classList.toggle('displayBlock')
         document.querySelector('#BtnUstensils').classList.toggle('displayGrid')
         DisplayList(GetUstensils(recipes), location)
+
+
     })
 
     document.querySelector('.green').addEventListener('click', ()=>{
         const location = document.getElementById('BtnDevice')
         location.innerHTML = ""
-        document.querySelector('#CrossOnGreen').classList.toggle('crossOnBtn')
+        const btnGreen = document.querySelector('#CrossOnGreen')
+        btnGreen.classList.toggle('crossOnBtn')
+        btnGreen.classList.toggle('btnAfter')
+        btnGreen.classList.toggle('btnAfterGreen')
+        const inputDevice = document.querySelector('#inputDevice')
+        inputDevice.classList.toggle('displayBlock')
         document.querySelector('#BtnDevice').classList.toggle('displayGrid')
         DisplayList(GetDevice(recipes), location)
     })
