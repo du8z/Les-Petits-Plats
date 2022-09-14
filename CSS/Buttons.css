@@ -57,7 +57,7 @@
     
  }
  .btnAfterRed{
-    width: 558.77px;
+    width: 572.27px;
  } 
  .btnAfterBlue{
     width: 984.14px;
@@ -94,7 +94,7 @@
     border: none;
     font-size: 18px;
     color: white;
-    width: 400px;
+    width: 200px;
 }
 input:focus{
     outline: none;

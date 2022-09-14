@@ -52,28 +52,26 @@ function test(recipe){
     });
     return ul
 }
+// Mettre la premiere lettre en majuscule 
+function majFirst(a){
+    return (a+'').charAt(0).toUpperCase()+a.substr(1);
+}
 function GetDevice (recipes){
     let b = []
     
     recipes.forEach(recipe=>{
         let appliance = recipe.appliance
-        b.push(appliance)
+        b.push(majFirst(appliance))
     })
     let unique = [...new Set(b)];
-/*     recipes.forEach(recipe => {
-        recipe.appliance.forEach(appliance=> {
-            b.push(appliance)
-        })
-    }); */
     return unique;
 }
-
 
 function GetUstensils(recipes){
     let b = []
     recipes.forEach(recipe => {
         recipe.ustensils.forEach(ustensil=> {
-            b.push(ustensil)
+            b.push(majFirst(ustensil))
         })
     });
  
@@ -86,10 +84,11 @@ let b = []
 
 recipes.forEach(recipe=> {
     recipe.ingredients.forEach(ingredient=>{
-        b.push(ingredient.ingredient)
+        b.push(majFirst(ingredient.ingredient))
     })
 })
 let unique = [...new Set(b)];
+console.log(unique);
 return unique;
 }
 
@@ -137,6 +136,7 @@ function dropDown(){
     })
 }
 dropDown()
+
 function DisplayList(ingredients, location){
         
         ingredients.forEach(ingredient =>{
@@ -146,4 +146,43 @@ function DisplayList(ingredients, location){
             location.appendChild(divIng)
         }) 
     
+}
+
+const searchBar = document.querySelector('#searchBar')
+searchBar.addEventListener('keyup', (e) =>{
+    const searchedLetters = e.target.value;
+    const cards = document.querySelectorAll('.articleInGrid')
+    filterElements(searchedLetters, cards);
+})
+
+function filterElements(letters, cards) {
+    let a =[]
+    if (letters.length > 2 ){
+        for (let i = 0; i < cards.length; i++) {
+            if (cards[i].textContent.includes(letters)){
+                a.push(cards[i])
+                console.log(a);
+                displayGridWithCard(a)
+                /* cards[i].style.display = 'block' */
+            } else {
+                /* cards[i].style.display = 'none' */
+
+            }
+            
+        }
+        
+    }
+
+    
+}
+
+function displayGridWithCard(cardsFilter){
+    const sectionGrid = document.querySelector('#sectionGrid')
+    sectionGrid.innerHTML = ''
+    for (let i = 0; i < cardsFilter.length; i++) {
+        console.log(cardsFilter);
+        let newArticle = cardsFilter[i]
+        sectionGrid.appendChild(newArticle)
+    }
+
 }
