@@ -88,7 +88,6 @@ recipes.forEach(recipe=> {
     })
 })
 let unique = [...new Set(b)];
-console.log(unique);
 return unique;
 }
 
@@ -149,7 +148,7 @@ function DisplayList(ingredients, location){
 }
 
 const searchBar = document.querySelector('#searchBar')
-searchBar.addEventListener('keyup', (e) =>{
+searchBar.addEventListener('change', (e) =>{
     const searchedLetters = e.target.value;
     const cards = document.querySelectorAll('.articleInGrid')
     filterElements(searchedLetters, cards);
@@ -171,6 +170,10 @@ function filterElements(letters, cards) {
             
         }
         
+    } else if (letters.length < 2){
+        const sectionGrid = document.querySelector('#sectionGrid')
+        sectionGrid.innerHTML = ''
+        displayGrid(recipes)
     }
 
     
