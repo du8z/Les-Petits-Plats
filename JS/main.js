@@ -154,17 +154,15 @@ searchBar.addEventListener('change', (e) =>{
     filterElements(searchedLetters, cards);
 })
 
-function filterElements(letters, cards) {
+/* function filterElements(letters, cards) {
     let a =[]
     if (letters.length > 2 ){
         for (let i = 0; i < cards.length; i++) {
-            if (cards[i].textContent.includes(letters)){
+            if (cards[i].textContent.toLowerCase().includes(letters.toLowerCase())){
                 a.push(cards[i])
                 console.log(a);
                 displayGridWithCard(a)
-                /* cards[i].style.display = 'block' */
             } else {
-                /* cards[i].style.display = 'none' */
 
             }
             
@@ -188,4 +186,33 @@ function displayGridWithCard(cardsFilter){
         sectionGrid.appendChild(newArticle)
     }
 
+} */
+
+function filterElements(letters, cards){
+    let a =[]
+    if (letters.length > 2 ) {
+        cards.forEach(card => {
+           if (card.textContent.toLowerCase().includes(letters.toLowerCase())){
+            a.push(card)
+            console.log(a);
+            displayGridWithCard(a)
+           }
+        });
+    } else if (letters.length < 2 ) {
+        const sectionGrid = document.querySelector('#sectionGrid')
+        sectionGrid.innerHTML = ''
+        displayGrid(recipes)
+    }
+}
+
+function displayGridWithCard(cardsFilter){
+    const sectionGrid = document.querySelector('#sectionGrid')
+    sectionGrid.innerHTML = ''
+    cardsFilter.forEach(cardFiltered =>{
+        console.log(cardFiltered);
+        let newArticle = cardFiltered
+        sectionGrid.appendChild(newArticle)
+    })
+
+    
 }
