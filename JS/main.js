@@ -142,6 +142,7 @@ function DisplayList(ingredients, location){
             let divIng = document.createElement('div')
             divIng.innerHTML = ingredient
             divIng.classList.add('cursor')
+            divIng.classList.add('elementInArray')
             location.appendChild(divIng)
         }) 
     
@@ -215,4 +216,28 @@ function displayGridWithCard(cardsFilter){
     })
 
     
+}
+
+const searchBarInButton = document.querySelector('#inputIngredient')
+searchBarInButton.addEventListener('change', (e) =>{
+    const searchedLetters = e.target.value;
+    let Array = GetIngredient(recipes)
+    researchInButton(searchedLetters, Array);
+})
+
+
+
+function researchInButton(letters, array){
+    let a = []
+    if (letters.length > 2){
+        
+    const filteredLetters = array.filter(el => el.includes(letters))
+    filteredLetters.forEach(filteredLetter =>{
+        
+        a.push(filteredLetter)
+        
+    })
+    const location = searchBarInButton
+        DisplayList(a, location)  
+    }
 }
