@@ -1,0 +1,30 @@
+
+/* Nav */
+
+.navBar{
+    background: #E7E7E7;
+    border-radius: 5px; 
+    border: none;
+    height: 69px;
+    width: 100%;
+    font-size: 18px;
+    padding-left: 24px ;
+
+}
+.navBar::placeholder{
+    color: black;
+}
+.nav{
+    margin: 17px 200px 0 200px;
+    display: flex;
+    align-items: center;
+
+    
+}
+.glassSvg{
+    margin-left: -60px;
+}
+
+.cursor{
+    cursor: pointer;
+}

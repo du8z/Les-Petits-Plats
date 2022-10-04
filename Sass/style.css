@@ -1,0 +1,301 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato';
+  font-style: normal;
+}
+
+body {
+  height: 100vh;
+}
+
+li {
+  list-style: none;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+/* Header */
+.slogan {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 47px;
+  color: #D04F4F;
+}
+
+.header {
+  margin-top: 42px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+/* Section Grid */
+.sectionGrid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  margin-left: 200px;
+}
+
+.articleInGrid {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  width: 380px;
+  height: 364px;
+  background: #E7E7E7;
+  border-radius: 5px;
+}
+
+.imgInGrid {
+  width: 100%;
+  height: 178px;
+  background: #C7BEBE;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.topArticle {
+  margin-top: 20px;
+}
+
+.NameInArticle {
+  margin-left: 20px;
+}
+
+.TimeInArticle {
+  margin-right: 20px;
+}
+
+.timeSvg {
+  margin-right: 7px;
+}
+
+.ingredientInArticle {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.recipeInArticle {
+  width: 171px;
+  height: 109px;
+  overflow: hidden;
+  margin-right: 18px;
+  margin-top: 20px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+}
+
+/* Nav */
+.navBar {
+  background: #E7E7E7;
+  border-radius: 5px;
+  border: none;
+  height: 69px;
+  width: 100%;
+  font-size: 18px;
+  padding-left: 24px;
+}
+
+.navBar::-webkit-input-placeholder {
+  color: black;
+}
+
+.navBar:-ms-input-placeholder {
+  color: black;
+}
+
+.navBar::-ms-input-placeholder {
+  color: black;
+}
+
+.navBar::placeholder {
+  color: black;
+}
+
+.nav {
+  margin: 17px 200px 0 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.glassSvg {
+  margin-left: -60px;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.blue {
+  background: #3282F7;
+}
+
+.green {
+  background: #68D9A4;
+}
+
+.red {
+  background: #ED6454;
+}
+
+/* Buttons */
+.btnsOfNav {
+  margin-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 200px;
+}
+
+.btn {
+  width: 170px;
+  height: 69px;
+  margin-right: 20px;
+  padding: 20px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.btnAfter {
+  padding: 20px;
+  border-radius: 5px 5px 0 0;
+}
+
+.btnAfterRed {
+  width: 572.27px;
+}
+
+.btnAfterBlue {
+  width: 984.14px;
+}
+
+.btnAfterGreen {
+  width: 516.34px;
+}
+
+.crossOnBtn > svg {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.testBTN {
+  display: none;
+  overflow-y: auto;
+  max-height: 397px;
+  padding: 20px;
+  position: absolute;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 30px;
+  grid-row-gap: 10px;
+  color: white;
+  font-size: 18px;
+  border-radius: 0 0 5px 5px;
+}
+
+.displayGrid {
+  display: -ms-grid;
+  display: grid;
+}
+
+.inputInBtn {
+  display: none;
+  position: absolute;
+  margin-top: -45px;
+  margin-left: 20px;
+  border: none;
+  font-size: 18px;
+  color: white;
+  width: 200px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.displayBlock {
+  display: block;
+}
+
+input::-webkit-input-placeholder {
+  color: #FFFFFF;
+  opacity: 0.5;
+}
+
+input:-ms-input-placeholder {
+  color: #FFFFFF;
+  opacity: 0.5;
+}
+
+input::-ms-input-placeholder {
+  color: #FFFFFF;
+  opacity: 0.5;
+}
+
+input::placeholder {
+  color: #FFFFFF;
+  opacity: 0.5;
+}
+
+.flexAround {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.flexCenter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.flexBetween {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=style.css.map */

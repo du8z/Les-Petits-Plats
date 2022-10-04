@@ -1,0 +1,77 @@
+/* Buttons */
+
+.btnsOfNav{
+    margin-top: 30px; 
+    display: flex;
+    align-items: center;
+    margin-left: 200px;
+ }
+ .btn{
+     width: 170px;
+     height: 69px;
+     margin-right:20px;
+     padding: 20px;
+     border: none;
+     border-radius: 5px;
+     color: white;
+     cursor: pointer;
+     font-weight: 700;
+     font-size: 18px;
+     line-height: 22px;
+    @extend %flexBetween;
+ }
+ .btnAfter {
+    padding: 20px;
+    border-radius: 5px 5px 0 0 ;
+    
+ }
+ .btnAfterRed{
+    width: 572.27px;
+ } 
+ .btnAfterBlue{
+    width: 984.14px;
+ } 
+ .btnAfterGreen{
+    width: 516.34px;
+ }
+
+.crossOnBtn > svg {
+    transform: rotate(180deg);
+    
+}
+.testBTN{
+    display: none;
+    overflow-y: auto;
+    max-height: 397px;
+    padding: 20px ;
+    position: absolute;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 10px;
+    color: white;
+    font-size: 18px;
+    border-radius: 0 0 5px 5px;
+}
+.displayGrid{
+    display: grid;
+}
+.inputInBtn{
+    display: none;
+    position: absolute;
+    margin-top: -45px;
+    margin-left: 20px;
+    border: none;
+    font-size: 18px;
+    color: white;
+    width: 200px;
+}
+input:focus{
+    outline: none;
+}
+.displayBlock{
+    display: block;
+}
+input::placeholder{
+    color: #FFFFFF;
+    opacity: 0.5;
+}
