@@ -88,6 +88,11 @@ li {
   line-height: 100%;
 }
 
+.pOfNothing {
+  margin-top: 50px;
+  width: 100%;
+}
+
 /* Nav */
 .navBar {
   background: #E7E7E7;
@@ -188,6 +193,10 @@ li {
   width: 516.34px;
 }
 
+.AllBtnAfter {
+  width: 240px;
+}
+
 .crossOnBtn > svg {
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
@@ -206,6 +215,12 @@ li {
   color: white;
   font-size: 18px;
   border-radius: 0 0 5px 5px;
+}
+
+.testBTNAfter {
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  width: 200px;
 }
 
 .displayGrid {
@@ -282,6 +297,18 @@ input::placeholder {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.pOfNothing {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;

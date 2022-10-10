@@ -46,3 +46,9 @@
     font-size: 12px;
     line-height: 100%;
 }
+.pOfNothing{
+    @extend %flexCenter;
+    margin-top: 50px;
+    width: 100%;
+
+}

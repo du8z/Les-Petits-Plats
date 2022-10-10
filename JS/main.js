@@ -56,7 +56,7 @@ function test(recipe){
 function majFirst(a){
 	return (a+'').charAt(0).toUpperCase()+a.substr(1)
 }
-function GetDevice (recipes){
+function GetDevice(recipes){
 	let b = []
     
 	recipes.forEach(recipe=>{
@@ -67,11 +67,11 @@ function GetDevice (recipes){
 	return unique
 }
 
-function GetUstensils(recipes){
+function GetUtensils(recipes){
 	let b = []
 	recipes.forEach(recipe => {
-		recipe.ustensils.forEach(ustensil=> {
-			b.push(majFirst(ustensil))
+		recipe.ustensils.forEach(utensil=> {
+			b.push(majFirst(utensil))
 		})
 	})
  
@@ -107,7 +107,7 @@ function dropDown(){
 	})
 
 	document.querySelector('.red').addEventListener('click', ()=>{
-		const location = document.querySelector('#BtnUstensils')
+		const location = document.querySelector('#BtnUtensils')
 		location.innerHTML = ''
 		const btnRed = document.querySelector('#CrossOnRed')
 		btnRed.classList.toggle('crossOnBtn')
@@ -115,8 +115,8 @@ function dropDown(){
 		btnRed.classList.toggle('btnAfterRed')
 		const inputUtensils = document.querySelector('#inputUtensils')
 		inputUtensils.classList.toggle('displayBlock')
-		document.querySelector('#BtnUstensils').classList.toggle('displayGrid')
-		DisplayList(GetUstensils(recipes), location)
+		document.querySelector('#BtnUtensils').classList.toggle('displayGrid')
+		DisplayList(GetUtensils(recipes), location)
 
 
 	})
@@ -182,76 +182,10 @@ function displayGridWithCard(cardsFilter){
     }
 
 } */
-const searchBar = document.querySelector('#searchBar')
-searchBar.addEventListener('change', (e) =>{
-	const searchedLetters = e.target.value
-	const cards = document.querySelectorAll('.articleInGrid')
-	filterElements(searchedLetters, cards)
-})
-
-function filterElements(letters, cards){
-	let a =[]
-	if (letters.length > 2 ) {
-		cards.forEach(card => {
-			if (card.textContent.toLowerCase().includes(letters.toLowerCase())){ //utiliser filter
-				a.push(card)
-				console.log(a)
-				displayGridWithCard(a)
-			}
-		})
-	} else if (letters.length < 2 ) {
-		const sectionGrid = document.querySelector('#sectionGrid')
-		sectionGrid.innerHTML = ''
-		displayGrid(recipes)
-	}
-}
-
-function displayGridWithCard(cardsFilter){
-	const sectionGrid = document.querySelector('#sectionGrid')
-	sectionGrid.innerHTML = ''
-	cardsFilter.forEach(cardFiltered =>{
-		console.log(cardFiltered)
-		let newArticle = cardFiltered
-		sectionGrid.appendChild(newArticle)
-	})
-
-    
-}
-
-const searchBarInButton = document.querySelector('#inputIngredient')
-searchBarInButton.addEventListener('change', (e) =>{
-	const searchedLettersInButton = e.target.value
-	let Array = GetIngredient(recipes)
-	researchInButton(searchedLettersInButton, Array)
-      
-})
 
 
-
-function researchInButton(letters, array){
-	let a = []
-	if (letters.length > 2){
-		const BtnIngredient = document.querySelector('#BtnIngredient')
-		BtnIngredient.getElementsByClassName.display = 'none'
-		const filteredLetters = array.filter(el => el.includes(letters))
-		filteredLetters.forEach(filteredLetter =>{
-			// eslint-disable-next-line
-			let location = searchBarInButton
-			a.push(filteredLetter)
-			refreshList (a)
-
-		})
-       
-	}
-}
-
-function refreshList (array){
-	const arrayFiltered = array 
-	console.log(arrayFiltered)
-	const test = document.querySelector('#BtnIngredient .elementInArray')
-	const test2 = document.querySelectorAll('.elementInArray')
-        
-	test.remove(test2)
-
-
-}
+export{GetIngredient}
+export{GetDevice}
+export{GetUtensils}
+export{displayGrid}
+export{DisplayList}

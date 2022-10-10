@@ -13,7 +13,7 @@
      padding: 20px;
      border: none;
      border-radius: 5px;
-     color: white;
+     color: $color-White;
      cursor: pointer;
      font-weight: 700;
      font-size: 18px;
@@ -34,7 +34,9 @@
  .btnAfterGreen{
     width: 516.34px;
  }
-
+.AllBtnAfter{
+    width: 240px;
+}
 .crossOnBtn > svg {
     transform: rotate(180deg);
     
@@ -48,9 +50,13 @@
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 30px;
     grid-row-gap: 10px;
-    color: white;
+    color: $color-White;
     font-size: 18px;
     border-radius: 0 0 5px 5px;
+}
+.testBTNAfter{
+    grid-template-columns: 1fr;
+    width: 200px;
 }
 .displayGrid{
     display: grid;
@@ -62,7 +68,7 @@
     margin-left: 20px;
     border: none;
     font-size: 18px;
-    color: white;
+    color: $color-White;
     width: 200px;
 }
 input:focus{
