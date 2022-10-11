@@ -1,4 +1,5 @@
 import {recipes} from '/JS/recipes.js'
+import {createTag} from '/JS/Tag.js'
 
 
 function articleStructure(recipe){
@@ -144,6 +145,8 @@ function DisplayList(ingredients, location){
 		divIng.classList.add('elementInArray')
 		location.appendChild(divIng)
 	}) 
+	createTag(ingredients)
+
     
 }
 

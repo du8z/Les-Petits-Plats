@@ -95,6 +95,7 @@ li {
 
 /* Nav */
 .navBar {
+  margin-bottom: 15px;
   background: #E7E7E7;
   border-radius: 5px;
   border: none;
@@ -152,7 +153,7 @@ li {
 
 /* Buttons */
 .btnsOfNav {
-  margin-top: 30px;
+  margin-top: 15px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -302,6 +303,29 @@ input::placeholder {
           align-items: center;
 }
 
+.flexStart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.divTag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .pOfNothing {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -324,5 +348,24 @@ input::placeholder {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+#tag {
+  margin-left: 180px;
+}
+
+.divTag {
+  padding: 10px;
+  margin-left: 20px;
+  max-width: 200px;
+  height: 27px;
+  background-color: #3282F7;
+  border-radius: 5px;
+  margin-top: 10px;
+  color: white;
+}
+
+.svgStyle {
+  padding-left: 13px;
 }
 /*# sourceMappingURL=style.css.map */

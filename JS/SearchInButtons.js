@@ -48,9 +48,10 @@ function researchInButton(letters, array, rightBtn){
 			// eslint-disable-next-line
 			a.push(filteredLetter)
 			refreshList (a, rightBtn)
+			
 		})
-       
 	}
+
 }
 
 function refreshList (array, location){
@@ -61,8 +62,9 @@ function refreshList (array, location){
 	document.querySelectorAll('.elementInArray')
 	DisplayList(array, location)
 	location.classList.add('testBTNAfter')
-	btnBlue.classList.add('AllBtnAfter')
-	btnRed.classList.add('AllBtnAfter')
-	btnGreen.classList.add('AllBtnAfter')
+	location.previousSibling.previousSibling.previousSibling.previousSibling.classList.add('AllBtnAfter')
+	
         
 }
+
+export{refreshList}

@@ -1,0 +1,18 @@
+#tag{
+    margin-left: 180px;
+}
+.divTag{
+    padding: 10px;
+    margin-left: 20px;
+    max-width: 200px;
+    height: 27px;
+    background-color: $color-Blue;
+    border-radius: 5px;
+    margin-top: 10px;
+    color: $color-White;
+    @extend %flexAround;
+}
+
+.svgStyle{
+    padding-left: 13px;
+}
