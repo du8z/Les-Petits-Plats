@@ -5,7 +5,7 @@ import {GetDevice} from '/JS/main.js'
 import {DisplayList} from '/JS/main.js'
 
 const searchBarInButtonIngredient = document.querySelector('#inputIngredient')
-searchBarInButtonIngredient.addEventListener('change', (e) =>{
+searchBarInButtonIngredient.addEventListener('keydown', (e) =>{
 	const searchedLettersInButton = e.target.value
 	const BtnIngredient = document.querySelector('#BtnIngredient') 
 	let Array = GetIngredient(recipes)
@@ -13,7 +13,7 @@ searchBarInButtonIngredient.addEventListener('change', (e) =>{
       
 })
 const searchBarInButtonDevice = document.querySelector('#inputDevice')
-searchBarInButtonDevice.addEventListener('change', (e) =>{
+searchBarInButtonDevice.addEventListener('keydown', (e) =>{
 	const searchedLettersInButton = e.target.value
 	const BtnDevice = document.querySelector('#BtnDevice') 
 	let Array = GetDevice(recipes)
@@ -21,7 +21,7 @@ searchBarInButtonDevice.addEventListener('change', (e) =>{
       
 })
 const searchBarInButtonUtensils = document.querySelector('#inputUtensils')
-searchBarInButtonUtensils.addEventListener('change', (e) =>{
+searchBarInButtonUtensils.addEventListener('keydown', (e) =>{
 	const searchedLettersInButton = e.target.value
 	const BtnDevice = document.querySelector('#BtnUtensils') 
 	let Array = GetUtensils(recipes)
@@ -41,23 +41,22 @@ function researchInButton(letters, array, rightBtn){
 	btnRed.classList.remove('AllBtnAfter')
 	btnGreen.classList.remove('AllBtnAfter')
 	let a = []
+	
 	if (letters.length > 2){
 		rightBtn.getElementsByClassName.display = 'none'
 		const filteredLetters = array.filter(el => el.toLowerCase().includes(letters.toLowerCase()))
 		filteredLetters.forEach(filteredLetter =>{
-			// eslint-disable-next-line
 			a.push(filteredLetter)
 			refreshList (a, rightBtn)
 			
 		})
-	}
+
+	} 
+
 
 }
 
 function refreshList (array, location){
-	const arrayFiltered = array 
-	console.log(arrayFiltered)
-	console.log(location)
 	location.innerHTML = ''
 	document.querySelectorAll('.elementInArray')
 	DisplayList(array, location)

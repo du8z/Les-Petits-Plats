@@ -2,7 +2,7 @@ import {recipes} from '/JS/recipes.js'
 import {displayGrid} from './main.js'
 const sectionGrid = document.querySelector('#sectionGrid')
 const searchBar = document.querySelector('#searchBar')
-searchBar.addEventListener('change', (e) =>{
+searchBar.addEventListener('keydown', (e) =>{
 	sectionGrid.classList.remove('flexCenter')
 	const searchedLetters = e.target.value
 	const cards = document.querySelectorAll('.articleInGrid')
@@ -48,3 +48,6 @@ function displayGridWithCard(cardsFilter){
 
     
 }
+
+export{filterElements}
+export{displayGridWithCard}
