@@ -98,26 +98,39 @@ function dropDown(){
 		const location = document.getElementById('BtnIngredient')
 		location.innerHTML = ''
 		const btnBlue = document.querySelector('#CrossOnBlue')
-		btnBlue.classList.toggle('crossOnBtn')
-		btnBlue.classList.toggle('btnAfter')
-		btnBlue.classList.toggle('btnAfterBlue')
+		let rightColorBtn =  btnBlue
+		let color = 'Blue'
+		toggleButton(rightColorBtn, color)
+
+
+
 		const inputDevice = document.querySelector('#inputIngredient')
-		inputDevice.classList.toggle('displayBlock')
+		inputDevice.classList.toggle('displayBlock')		// verifier les autres buttons 
 		document.querySelector('#BtnIngredient').classList.toggle('displayGrid')
 		DisplayList(GetIngredient(recipes), location)
+		const btnRed = document.querySelector('#CrossOnRed')
+		const btnGreen = document.querySelector('#CrossOnGreen')
+		closeOtherButton(btnRed,'Red',  'inputUtensils', 'Utensils')
+		closeOtherButton(btnGreen, 'Green',  'inputDevice', 'Device')
 	})
 
 	document.querySelector('.red').addEventListener('click', ()=>{
 		const location = document.querySelector('#BtnUtensils')
 		location.innerHTML = ''
 		const btnRed = document.querySelector('#CrossOnRed')
-		btnRed.classList.toggle('crossOnBtn')
-		btnRed.classList.toggle('btnAfter')
-		btnRed.classList.toggle('btnAfterRed')
+		let rightColorBtn =  btnRed
+		let color = 'Red'
+		toggleButton(rightColorBtn, color)
 		const inputUtensils = document.querySelector('#inputUtensils')
 		inputUtensils.classList.toggle('displayBlock')
 		document.querySelector('#BtnUtensils').classList.toggle('displayGrid')
 		DisplayList(GetUtensils(recipes), location)
+		const btnGreen = document.querySelector('#CrossOnGreen')
+		const btnBlue = document.querySelector('#CrossOnBlue')
+
+		closeOtherButton(btnGreen, 'Green',  'inputDevice', 'Device')
+		closeOtherButton(btnBlue, 'Blue',  'inputIngredient', 'Ingredient')
+
 
 
 	})
@@ -126,13 +139,18 @@ function dropDown(){
 		const location = document.getElementById('BtnDevice')
 		location.innerHTML = ''
 		const btnGreen = document.querySelector('#CrossOnGreen')
-		btnGreen.classList.toggle('crossOnBtn')
-		btnGreen.classList.toggle('btnAfter')
-		btnGreen.classList.toggle('btnAfterGreen')
+		let rightColorBtn =  btnGreen
+		let color = 'Green'
+		toggleButton(rightColorBtn, color)
 		const inputDevice = document.querySelector('#inputDevice')
 		inputDevice.classList.toggle('displayBlock')
 		document.querySelector('#BtnDevice').classList.toggle('displayGrid')
 		DisplayList(GetDevice(recipes), location)
+		const btnBlue = document.querySelector('#CrossOnBlue')
+		const btnRed = document.querySelector('#CrossOnRed')
+		closeOtherButton(btnBlue, 'Blue',  'inputIngredient', 'Ingredient')
+		closeOtherButton(btnRed,'Red',  'inputUtensils', 'Utensils')
+
 	})
 }
 dropDown()
@@ -151,8 +169,25 @@ function DisplayList(ingredients, location){
 }
 
 
+function toggleButton(btn, color){
+	btn.classList.toggle('crossOnBtn')
+	btn.classList.toggle('btnAfter')
+	btn.classList.toggle(`btnAfter${color}`)
+}
 
 
+function closeOtherButton(color1, color2,  input, category){
+	if (color1.classList.contains('btnAfter')){
+		let color = color2
+		toggleButton(color1, color)
+
+		const inputAll = document.querySelector(`#${input}`)
+		inputAll.classList.toggle('displayBlock')
+
+		document.querySelector(`#Btn${category}`).classList.toggle('displayGrid')
+
+	}
+}
 
 
 export{GetIngredient}
