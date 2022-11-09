@@ -93,7 +93,8 @@ function GetIngredient(recipes){
 }
 
 function dropDown(){
-
+	let filterArray = recipes
+	// console.log(filterArray)
 	document.querySelector('.blue').addEventListener('click', ()=>{
 		const location = document.getElementById('BtnIngredient')
 		location.innerHTML = ''
@@ -105,9 +106,9 @@ function dropDown(){
 
 
 		const inputDevice = document.querySelector('#inputIngredient')
-		inputDevice.classList.toggle('displayBlock')		// verifier les autres buttons 
+		inputDevice.classList.toggle('displayBlock')		
 		document.querySelector('#BtnIngredient').classList.toggle('displayGrid')
-		DisplayList(GetIngredient(recipes), location)
+		DisplayList(GetIngredient(recipes), location, filterArray)
 		const btnRed = document.querySelector('#CrossOnRed')
 		const btnGreen = document.querySelector('#CrossOnGreen')
 		closeOtherButton(btnRed,'Red',  'inputUtensils', 'Utensils')
@@ -155,7 +156,7 @@ function dropDown(){
 }
 dropDown()
 
-function DisplayList(ingredients, location){
+function DisplayList(ingredients, location, filterArray){
 	ingredients.forEach(ingredient =>{
 		let divIng = document.createElement('div')
 		divIng.innerHTML = ingredient
@@ -163,7 +164,7 @@ function DisplayList(ingredients, location){
 		divIng.classList.add('elementInArray')
 		location.appendChild(divIng)
 	}) 
-	createTag(ingredients)
+	createTag(filterArray, ingredients)
 
     
 }

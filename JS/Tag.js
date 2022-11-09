@@ -5,12 +5,13 @@ import {displayGrid} from './main.js'
 
 
 
-function createTag(){
+function createTag(filterArray, ingredients){
 	const elementArray = document.querySelectorAll('.elementInArray')
 	elementArray.forEach(element => {
 		element.addEventListener('click', () => {
-			const cards = document.querySelectorAll('.articleInGrid')
-	
+			console.log(element.innerHTML)
+			let test = ingredients.filter(el => el !== element.innerHTML)
+			console.log(test)
 			const divOfTags = document.getElementById('tag')
 			let elementTextContent = element.textContent
 			
@@ -33,8 +34,8 @@ function createTag(){
 			divOfTags.appendChild(divForTag)
 			
 
-			deleteTag(divForTag, divOfTags, cards)
-			selectRightFilter(element, divForTag, elementTextContent)
+			deleteTag(divForTag, divOfTags, elementTextContent)
+			selectRightFilter(element, divForTag, elementTextContent, filterArray)
 
 		})
 	})
@@ -44,19 +45,40 @@ function createTag(){
 
 }
 
-function deleteTag(divForTag, divOfTags){
+function deleteTag(divForTag, divOfTags, elementTextContent){
+	const arrayRecipes = presentItem()
 	divForTag.addEventListener('click', ()=>{
 		divOfTags.removeChild(divForTag)
 		const sectionGrid = document.querySelector('#sectionGrid')
 		sectionGrid.innerHTML = ''
-		displayGrid(recipes)
+		const divTag = document.querySelectorAll('.divTag')
+		console.log(divTag)
+		if (divTag.length > 0 ){
+			divTag.forEach(el => {
+				console.log(el)
+				if (el.classList.contains('blue')){
+					console.log(elementTextContent)
+					filterIngredient(elementTextContent, arrayRecipes)
+				}
+				if (el.classList.contains('green')){
+					filterDevice(elementTextContent, arrayRecipes)
+
+				}
+				if (el.classList.contains('red')){
+					filterUtensils(elementTextContent, arrayRecipes)
+				}
+			})
+			displayGrid(arrayRecipes)
+		} else {
+			displayGrid(recipes)
+		}
+		
+		// selectRightFilter(element, divForTag, elementTextContent, filterArray)
 	}) 
 }
 
-function filterIngredient(elementTextContent){
+function filterIngredient(elementTextContent, arrayRecipes ){
 	let a = []
-	const arrayRecipes = recipes
-
 	arrayRecipes.forEach(el => {
 		
 
@@ -69,12 +91,10 @@ function filterIngredient(elementTextContent){
 	})
 	const sectionGrid = document.querySelector('#sectionGrid')
 	sectionGrid.innerHTML = ''
-	console.log(a)
 	return a
 }
 
-function filterDevice(elementTextContent){
-	const arrayRecipes = recipes
+function filterDevice(elementTextContent, arrayRecipes){
 	let a = []
 	arrayRecipes.forEach(el => {
 
@@ -88,10 +108,8 @@ function filterDevice(elementTextContent){
 	return a
 }
 
-function filterUtensils(elementTextContent){
-	const arrayRecipes = recipes
+function filterUtensils(elementTextContent, arrayRecipes){
 	let a = []
-	console.log(arrayRecipes)
 	arrayRecipes.forEach(el => {
 		let arrayWithUtensils = el.ustensils
 		const arrayUtensilsFiltred = arrayWithUtensils.filter(utensil => utensil.toLowerCase().includes(elementTextContent.toLowerCase()))
@@ -108,48 +126,48 @@ function filterUtensils(elementTextContent){
 
 
 
-function selectRightFilter(element, divForTag, elementTextContent) {
-	const divIdTag = document.querySelector('#tag')
-	let filterArray = []
+function selectRightFilter(element, divForTag, elementTextContent, filterArray) {
 	const divInTag = document.querySelectorAll('.divTag')
-	divInTag.forEach(el => {
+	const arrayRecipes = presentItem()
+
+	divInTag.forEach(() => {
 		if (element.parentElement.classList.contains('blue')){
 			divForTag.classList.add('blue')
-			filterArray = filterIngredient(elementTextContent)
+			filterArray = filterIngredient(elementTextContent, arrayRecipes)
 
 		}
 		if (element.parentElement.classList.contains('red')){
 			divForTag.classList.add('red')
-			filterArray = filterUtensils(elementTextContent)
-
+			filterArray = filterUtensils(elementTextContent, arrayRecipes)
 		}
 		if (element.parentElement.classList.contains('green')){
 			divForTag.classList.add('green')
-			filterArray = filterDevice(elementTextContent)
-
+			filterArray = filterDevice(elementTextContent, arrayRecipes)
 		}
 	})
-
 	displayGrid(filterArray)
 
 }
 
 
-/* function presentItem(){
-	const arrayRecipes = recipes
+function presentItem(){
 	let a = []
 	const allItemHTMLCollection = document.getElementsByClassName('NameInArticle')
 	const allItem = [...allItemHTMLCollection]
+
 	allItem.forEach(element => {
 		
-		const nameElement = element.innerHTML
-		console.log(nameElement)
-		const List = arrayRecipes.filter(elt => elt.nameElement === nameElement)
+		// let nameElement = element.innerHTML
+		// console.log(nameElement)
+		const string4 = new String(`${element.innerHTML}`)
+		const nameElement = string4.slice('/')
+		const nameElementTrim = nameElement.trim()
+		const List = recipes.filter(elt => elt.name === nameElementTrim)
 		a.push(List)
-		// el.nameElement === nameElement
 	})
-	console.log(a)
-} */
+	const flat = a.flat()
+	return flat 
+}
 
 
 export{createTag}
