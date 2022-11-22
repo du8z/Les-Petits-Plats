@@ -1,5 +1,6 @@
 import {recipes} from '/JS/recipes.js'
 import {createTag} from '/JS/Tag.js'
+import {presentItem} from '/JS/Tag.js'
 
 
 function articleStructure(recipe){
@@ -108,7 +109,8 @@ function dropDown(){
 		const inputDevice = document.querySelector('#inputIngredient')
 		inputDevice.classList.toggle('displayBlock')		
 		document.querySelector('#BtnIngredient').classList.toggle('displayGrid')
-		DisplayList(GetIngredient(recipes), location, filterArray)
+		let allPresentItem = presentItem()
+		DisplayList(GetIngredient(allPresentItem), location, filterArray)
 		const btnRed = document.querySelector('#CrossOnRed')
 		const btnGreen = document.querySelector('#CrossOnGreen')
 		closeOtherButton(btnRed,'Red',  'inputUtensils', 'Utensils')
@@ -125,7 +127,8 @@ function dropDown(){
 		const inputUtensils = document.querySelector('#inputUtensils')
 		inputUtensils.classList.toggle('displayBlock')
 		document.querySelector('#BtnUtensils').classList.toggle('displayGrid')
-		DisplayList(GetUtensils(recipes), location)
+		let allPresentItem = presentItem()
+		DisplayList(GetUtensils(allPresentItem), location)	// presentItem
 		const btnGreen = document.querySelector('#CrossOnGreen')
 		const btnBlue = document.querySelector('#CrossOnBlue')
 
@@ -146,7 +149,8 @@ function dropDown(){
 		const inputDevice = document.querySelector('#inputDevice')
 		inputDevice.classList.toggle('displayBlock')
 		document.querySelector('#BtnDevice').classList.toggle('displayGrid')
-		DisplayList(GetDevice(recipes), location)
+		let allPresentItem = presentItem()
+		DisplayList(GetDevice(allPresentItem), location)
 		const btnBlue = document.querySelector('#CrossOnBlue')
 		const btnRed = document.querySelector('#CrossOnRed')
 		closeOtherButton(btnBlue, 'Blue',  'inputIngredient', 'Ingredient')
@@ -164,7 +168,7 @@ function DisplayList(ingredients, location, filterArray){
 		divIng.classList.add('elementInArray')
 		location.appendChild(divIng)
 	}) 
-	createTag(filterArray, ingredients)
+	createTag()
 
     
 }

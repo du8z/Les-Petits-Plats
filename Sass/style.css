@@ -183,15 +183,15 @@ li {
 }
 
 .btnAfterRed {
-  width: 572.27px;
+  width: 590px;
 }
 
 .btnAfterBlue {
-  width: 984.14px;
+  width: 984px;
 }
 
 .btnAfterGreen {
-  width: 516.34px;
+  width: 540px;
 }
 
 .AllBtnAfter {
@@ -216,6 +216,18 @@ li {
   color: white;
   font-size: 18px;
   border-radius: 0 0 5px 5px;
+}
+
+.btnRed {
+  width: 550px;
+}
+
+.btnGreen {
+  width: 500px;
+}
+
+.btnBlue {
+  width: 944px;
 }
 
 .testBTNAfter {

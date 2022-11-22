@@ -26,13 +26,13 @@
     
  }
  .btnAfterRed{
-    width: 572.27px;
+    width: 590px;
  } 
  .btnAfterBlue{
-    width: 984.14px;
+    width: 984px;
  } 
  .btnAfterGreen{
-    width: 516.34px;
+    width: 540px;
  }
 .AllBtnAfter{
     width: 240px;
@@ -45,7 +45,7 @@
     display: none;
     overflow-y: auto;
     max-height: 397px;
-    padding: 20px ;
+    padding: 20px ;     //%
     position: absolute;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 30px;
@@ -54,6 +54,17 @@
     font-size: 18px;
     border-radius: 0 0 5px 5px;
 }
+.btnRed{
+    width: 550px;
+}
+.btnGreen{
+    width: 500px;
+}
+.btnBlue{
+    width: 944px;
+
+}
+
 .testBTNAfter{
     grid-template-columns: 1fr;
     width: 200px;

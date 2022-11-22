@@ -5,13 +5,11 @@ import {displayGrid} from './main.js'
 
 
 
-function createTag(filterArray, ingredients){
+function createTag(){
 	const elementArray = document.querySelectorAll('.elementInArray')
 	elementArray.forEach(element => {
 		element.addEventListener('click', () => {
-			console.log(element.innerHTML)
-			let test = ingredients.filter(el => el !== element.innerHTML)
-			console.log(test)
+
 			const divOfTags = document.getElementById('tag')
 			let elementTextContent = element.textContent
 			
@@ -32,10 +30,26 @@ function createTag(filterArray, ingredients){
 			divForTag.appendChild(pForTag)
 			divForTag.appendChild(svgForTag)
 			divOfTags.appendChild(divForTag)
-			
+			if (element.parentElement.classList.contains('blue')){
+				
+				divForTag.classList.add('blue') 
+
+			}
+			if (element.parentElement.classList.contains('green')){
+				
+				divForTag.classList.add('green') 
+
+			}
+			if (element.parentElement.classList.contains('red')){
+				
+				divForTag.classList.add('red') 
+
+			}
 
 			deleteTag(divForTag, divOfTags, elementTextContent)
-			selectRightFilter(element, divForTag, elementTextContent, filterArray)
+			const arrayRecipes = presentItem()
+			let filterArray = selectRightFilter(element, elementTextContent, arrayRecipes)
+			displayGrid(filterArray)
 
 		})
 	})
@@ -45,35 +59,37 @@ function createTag(filterArray, ingredients){
 
 }
 
-function deleteTag(divForTag, divOfTags, elementTextContent){
-	const arrayRecipes = presentItem()
+function deleteTag(divForTag, divOfTags){
+	let filterArray = []
+
 	divForTag.addEventListener('click', ()=>{
+
 		divOfTags.removeChild(divForTag)
 		const sectionGrid = document.querySelector('#sectionGrid')
 		sectionGrid.innerHTML = ''
 		const divTag = document.querySelectorAll('.divTag')
-		console.log(divTag)
+		filterArray = recipes
 		if (divTag.length > 0 ){
-			divTag.forEach(el => {
-				console.log(el)
-				if (el.classList.contains('blue')){
-					console.log(elementTextContent)
-					filterIngredient(elementTextContent, arrayRecipes)
-				}
-				if (el.classList.contains('green')){
-					filterDevice(elementTextContent, arrayRecipes)
+			let elements = divOfTags.childNodes
+			elements.forEach((el)=> {
+				let element = el.firstChild
+				let elementTextContent = element.innerHTML
+				
+				filterArray = selectRightFilter(element, elementTextContent, filterArray)
 
-				}
-				if (el.classList.contains('red')){
-					filterUtensils(elementTextContent, arrayRecipes)
-				}
+
+				console.log(filterArray)
+				
 			})
-			displayGrid(arrayRecipes)
-		} else {
-			displayGrid(recipes)
+			
+
 		}
+
+		console.log(filterArray)
+		displayGrid(filterArray)
 		
-		// selectRightFilter(element, divForTag, elementTextContent, filterArray)
+
+		
 	}) 
 }
 
@@ -102,7 +118,6 @@ function filterDevice(elementTextContent, arrayRecipes){
 			a.push(el)
 		}
 	})
-	console.log(a)
 	const sectionGrid = document.querySelector('#sectionGrid')
 	sectionGrid.innerHTML = ''
 	return a
@@ -126,27 +141,24 @@ function filterUtensils(elementTextContent, arrayRecipes){
 
 
 
-function selectRightFilter(element, divForTag, elementTextContent, filterArray) {
+function selectRightFilter(element, elementTextContent, arrayRecipes) {
 	const divInTag = document.querySelectorAll('.divTag')
-	const arrayRecipes = presentItem()
-
+	let filterArray = []
 	divInTag.forEach(() => {
+		// console.log(element)
 		if (element.parentElement.classList.contains('blue')){
-			divForTag.classList.add('blue')
-			filterArray = filterIngredient(elementTextContent, arrayRecipes)
-
+			filterArray = filterIngredient(elementTextContent, arrayRecipes) // push
+			
 		}
 		if (element.parentElement.classList.contains('red')){
-			divForTag.classList.add('red')
 			filterArray = filterUtensils(elementTextContent, arrayRecipes)
 		}
 		if (element.parentElement.classList.contains('green')){
-			divForTag.classList.add('green')
 			filterArray = filterDevice(elementTextContent, arrayRecipes)
 		}
+		
 	})
-	displayGrid(filterArray)
-
+	return filterArray
 }
 
 
@@ -156,9 +168,7 @@ function presentItem(){
 	const allItem = [...allItemHTMLCollection]
 
 	allItem.forEach(element => {
-		
-		// let nameElement = element.innerHTML
-		// console.log(nameElement)
+
 		const string4 = new String(`${element.innerHTML}`)
 		const nameElement = string4.slice('/')
 		const nameElementTrim = nameElement.trim()
@@ -166,8 +176,9 @@ function presentItem(){
 		a.push(List)
 	})
 	const flat = a.flat()
-	return flat 
+	return flat
 }
 
 
 export{createTag}
+export{presentItem}
