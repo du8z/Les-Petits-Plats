@@ -2,4 +2,4 @@
 
 ## Démarrer le projet
 
-Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.
+Ouvrir le projet dans VS Code. Utilisez live serveur pour le démarrer.
